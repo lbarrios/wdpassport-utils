@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sg=$(dmesg | grep scsi | tail -n 1 | sed -n -e 's/^.*CD-ROM //p')
+sg=$(dmesg | grep -i "attached scsi disk" | sed -n -e 's/] Attached SCSI disk//p' | sed -n -e 's/^.*: \[//p' | tail -n 1)
 password_file="password.bin"
 
 if [ -f $password_file ]; then
