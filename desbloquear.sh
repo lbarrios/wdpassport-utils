@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sg=$(sudo dmesg | grep sg | grep "type 13" | tail -n 1 | sed -n -e 's/^.*generic //p' | cut -f1 -d" ")
+sg=$(dmesg | grep scsi | tail -n 1 | sed -n -e 's/^.*CD-ROM //p')
 password_file="password.bin"
 
 if [ -f $password_file ]; then
